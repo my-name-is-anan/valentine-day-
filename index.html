@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Jian</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color: #f5f5f5;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 80px 20px;
+    max-width: 750px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 38px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.section {
+    margin: 80px 0;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1.5s ease;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.line {
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.glow {
+    color: #ffb3c6;
+    text-shadow: 0 0 12px #ff4d6d;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: none;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #ff1e4d;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9e2a4b02d5.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+<h1>Untuk Jian</h1>
+
+<div class="section">
+    <div class="line">
+        Masih ingat awalnya?
+    </div>
+    <div class="line glow">
+        “eh boleh cerita ta?”
+    </div>
+    <div class="line">
+        Dari situ semuanya mulai panjang.
+        Dari chat random… jadi kebiasaan.
+    </div>
+</div>
+
+<div class="section">
+    <div class="line">
+        Kamu kadang cuek.
+    </div>
+    <div class="line">
+        Tapi kadang juga clingy ke an an.
+    </div>
+    <div class="line glow">
+        Dan an an selalu diam-diam senyum sendiri.
+    </div>
+</div>
+
+<!-- MINI GAME PERSONAL -->
+<div class="section">
+    <div class="line glow">
+        Sekarang jawab jujur ya…
+    </div>
+    <div class="line">
+        Biasanya siapa yang duluan bilang kangen?
+    </div>
+
+    <button onclick="answerGame('jian')">Jian 😌</button>
+    <button onclick="answerGame('anan')">An An 😝</button>
+    <button onclick="answerGame('gengsi')">Dua-duanya gengsi</button>
+
+    <div id="gameResult" class="line glow" style="margin-top:30px; display:none;"></div>
+</div>
+
+<div class="section">
+    <div class="line">
+        Ada hal kecil yang orang lain nggak sadar.
+    </div>
+    <div class="line">
+        Cara kamu ketawa waktu bercanda receh.
+    </div>
+    <div class="line">
+        Waktu kamu ngambek tapi nggak pernah lama.
+    </div>
+    <div class="line glow">
+        Dan obrolan tengah malam yang ujungnya ketiduran.
+    </div>
+</div>
+
+<div class="section">
+    <div class="line">
+        Kalau suatu hari kamu nanya,
+    </div>
+    <div class="line glow">
+        “Kenapa sih harus aku?”
+    </div>
+    <div class="line">
+        Jawabannya sederhana.
+    </div>
+    <div class="line glow">
+        Karena dari semua kemungkinan…
+        tetap kamu yang bikin an an nyaman.
+    </div>
+</div>
+
+<button onclick="ending()">Klik Ini Terakhir 💌</button>
+
+<div id="endingText" class="line glow" style="margin-top:40px; display:none;">
+    Happy Valentine’s Day ❤️<br><br>
+    Bukan cuma tentang hari ini.<br>
+    Tapi tentang siapa yang tetap dipilih.<br><br>
+    Dan an an… milih Jian.
+</div>
+
+</div>
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+    sections.forEach(sec => {
+        const pos = sec.getBoundingClientRect().top;
+        if(pos < window.innerHeight - 100){
+            sec.classList.add('show');
+        }
+    });
+});
+
+function answerGame(answer){
+    const result = document.getElementById("gameResult");
+    result.style.display = "block";
+
+    if(answer === "jian"){
+        result.innerHTML = "Iya ya? Tapi an an nggak pernah nolak kok 😌";
+    }
+    else if(answer === "anan"){
+        result.innerHTML = "Jujur banget ya 😝 tapi nggak apa-apa, yang penting sampainya ke kamu.";
+    }
+    else {
+        result.innerHTML = "Iya sih… gengsi doang, padahal sama-sama nunggu notif 😌";
+    }
+}
+
+function ending(){
+    document.getElementById("endingText").style.display="block";
+}
+</script>
+
+</body>
+</html>
